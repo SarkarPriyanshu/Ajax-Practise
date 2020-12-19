@@ -2,7 +2,7 @@
   "name": "AjaxSite",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
+  "main": "index.js",
   "scripts": {
     "deploy":"gh-pages -d .", 
     "test": "echo \"Error: no test specified\" && exit 1",
