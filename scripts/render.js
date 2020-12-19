@@ -1,33 +1,33 @@
-const home = require('./aboutme')
-const aboutme = require('./aboutme') 
-const skills = require('./skills')
+const home = require('./home');
+const aboutme = require('./aboutme'); 
+const skills = require('./skills');
 
 
 let main = document.querySelector('main');
 let render = (val) => {
-  let  option;
-  console.log(val);
-
-  if(val === 'Home'){
-      option = 'Home'
-  }else{
-      option = val.getAttribute('value');
-  }
-  console.log(option)
-  switch(option){
-      case 'Home':
+    let  option;
+    
+    if(val === 'Home'){
+        option = 'Home'
+    }else{
+        option = val.getAttribute('value');
+    }
+    
+    switch(option){
+        case 'Home':
+          console.log(option)
           removeElement();
           home();
           break;
       case 'About Me':
           removeElement();
           aboutme();
-          addBack()
+          addBack();
           break;
       case  'Skills':
           removeElement()
           skills(); 
-          addBack()
+          addBack();
           break;   
        default :
             console.error('Something went wrong!')  
@@ -36,6 +36,7 @@ let render = (val) => {
 
 
 function removeElement(){
+    console.log(`removing Element in main div`)
     while(main.firstChild){
         main.removeChild(main.lastChild);
     };
@@ -48,7 +49,7 @@ function addBack(){
     backButton.innerHTML = 'Back'
     main.append(backButton);
     backButton.addEventListener('click',function(){
-        let val = this;
+        let val = 'Home';
         render(val);
     })
 }
